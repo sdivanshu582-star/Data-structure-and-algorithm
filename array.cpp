@@ -20,10 +20,8 @@
          
     // }
 
-    // ::::::::::::::::::::::::::::::::::::::::: OPTIMAL SOLUTION ::::::::::::::::::::::::::::::::::::::
+    // ::::::::::::::::::::::::::::::::::::::::OPTIMALSOLUTION:::::::::::::::::::::::::::::::::::::
 
-
-//  ::::::::::::::::::::::::::::::::::::::::::::::OPTIMAL SOLUTION::::::::::::::::::::::::::::::::::::::   
 
 //          int i=0;
 //          int j=i+1;
@@ -42,3 +40,83 @@
 //         j++;
 //     }
 // }
+
+
+/////////////////////////////////////Union of two sorted arrays//////////////////////////////
+
+
+        // BRUTE FORCE APPROACH
+//        int n=nums1.size();
+//        int m =nums2.size();
+//        set<int> st;
+//        for(int i=0;i<n;i++){
+// st.insert(nums1[i]);
+//        }
+//        for(int i=0;i<m;i++){
+//         st.insert(nums2[i]);
+//        }
+//        vector<int>vrr;
+//        for (auto x:st){
+//         vrr.push_back(x);
+//        }
+// return vrr;
+
+// :::::::::::::::::::::::::::::::::OPTIMALAPPROACH:::::::::::::::::::::::::::::::::::::
+
+// int i=0;
+// int j=0;
+// int n=nums1.size(); 
+// int m =nums2.size();
+// vector<int> unionArray;
+// while (i<n && j<m){
+//     if (nums1[i]<=nums2[j]){
+//         if (unionArray.size()==0 || unionArray.back()!=nums1[i]){
+//             unionArray.push_back(nums1[i]);
+//         }
+//         i++;
+//     }
+//     else{
+//         if (unionArray.size()==0 || unionArray.back()!=nums2[j]){
+//             unionArray.push_back(nums2[j]);
+//         }
+//         j++;
+//     }
+// }
+// while(i<n){
+
+//         if ( unionArray.back()!=nums1[i]){
+//             unionArray.push_back(nums1[i]);
+//         }
+//         i++;
+    
+// }
+// while(j<m){
+      
+//         if (unionArray.back()!=nums2[j]){
+//             unionArray.push_back(nums2[j]);
+//         }
+//         j++;
+    
+// }
+// return unionArray;
+
+
+/////////////////////////////////////////FIND MISSING NUMBER/////////////////////////////////////////
+
+// ::::::::::::::::::::::::::::::::::::::::::BRUTE FORCE:::::::::::::::::::::::::::::::::::::::::::::::::
+
+//  sort(nums.begin(),nums.end());
+//         int n=nums.size();
+//         int i=0;
+//         int j=0;
+//         while(i<n){
+
+//        if (i!=nums[i]){
+//          j=i;
+//          break;
+//        }
+//        else {
+//         if (i==n-1){
+//             j=i+1;
+//         }
+
