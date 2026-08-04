@@ -158,3 +158,56 @@
 
 //     }
 // };
+
+
+
+
+// ::::::::::::::::::::::::::::::::
+// 169. Majority Element::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+// // BRUTE FORCE
+
+// //                 int n=nums.size();
+     
+// //         int a;
+// //         for (int i=0;i<n;i++){
+// //      int count=0;
+// // for(int j=i+1;j<n;j++){
+    
+// // if (nums[i]==nums[j]){
+// //     count++;
+// //     if (count==n/2){
+// //          a= nums[i];
+// //          break;
+// //     }
+// // }
+// // }
+// //         }if (n==1){a=nums[0];
+// //         return a;
+// //         }else {
+// //         return a;}
+
+// //OPTIMAL APPROACH
+
+// // unordered_map<int,int> un;
+// // int n=nums.size();
+// // int a;
+// // for (int i=0;i<n;i++){
+// //     un[nums[i]]=un[nums[i]]+1;
+// // }
+// // for (auto x:un){
+// // if(x.second>n/2){
+// // a=x.first;
+// // break;
+// //     }
+// // }
+// // return a;
+
+//     }
+// };
