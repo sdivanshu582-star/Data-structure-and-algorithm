@@ -238,3 +238,62 @@
 //         return i + 1;
 //     }
 // };
+
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Longest subarray with sum K::::::::::::::::::::::::::::::::::::
+
+// class Solution{
+// public:
+//     int longestSubarray(vector<int> &nums, int k){
+        //brute force approach
+//         int n=nums.size();
+//         int len=0;
+//         for (int i=0;i<n;i++){
+//             for (int j=i;j<n;j++){
+//                 int sum =0;
+//                 for (int k =i;k<j;k++){
+//                 sum=sum+nums[k];
+//                 if (sum==k){
+// len=max(len,j-i+1);
+//                 }
+//                 }
+//             }
+//         }
+//         return len;
+
+
+//          int n=nums.size();
+//         int len=0;
+//         for (int i=0;i<n;i++){
+//              int sum =0;
+//             for (int j=i;j<n;j++){
+
+//                 sum=sum+nums[j];
+//                 if (sum==k){
+// len=max(len,j-i+1);
+//                 }
+                
+//             }
+//         }
+//         return len;
+
+//BETTER Solution
+// map<long long,int> prefixsum;
+// int sum=0;
+// long long n=nums.size();
+// int len=0;
+// for (int i =0;i<n;i++){
+//     sum=sum+nums[i];
+//       long long rem =sum-k;
+//     if (sum==k){
+// len=max(len,i+1);
+//     } 
+//     else if(prefixsum.find(rem)!=prefixsum.end()){
+//         int i=i-prefixsum[rem];
+//         len=max(len,i);
+
+//     }
+//     prefixsum[sum]=i;
+// }
+// return len;
