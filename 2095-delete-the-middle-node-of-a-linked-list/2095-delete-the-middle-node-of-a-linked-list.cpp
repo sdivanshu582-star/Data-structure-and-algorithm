@@ -11,22 +11,30 @@
 class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
-        if (head == nullptr || head->next == nullptr)
-            return nullptr;
-
-        ListNode* slow = head;
-        ListNode* fast = head;
-        ListNode* prev = nullptr;
-
-        while (fast != nullptr && fast->next != nullptr) {
-            prev = slow;
-            slow = slow->next;
-            fast = fast->next->next;
+        // brute force 
+         ListNode* temp=head;
+        int middle;
+        int length;
+        while(temp!=NULL){
+            length++;
+            temp=temp->next;
         }
-
-        prev->next = slow->next;
-        delete slow;   // optional on LeetCode, but good practice in C++
-
+        if(length==1){
+          temp=NULL;
+          return temp;
+        }
+        middle=length/2;
+        temp=head;
+        while(temp!=NULL){
+            middle--;
+            if(middle==0){
+                break;
+            }
+            temp=temp->next;
+        }
+        ListNode*delnode=temp->next;
+        temp->next=temp->next->next;
+        delete delnode;
         return head;
     }
 };
