@@ -12,28 +12,47 @@ class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
         // brute force 
-         ListNode* temp=head;
-        int middle;
-        int length;
-        while(temp!=NULL){
-            length++;
-            temp=temp->next;
-        }
-        if(length==1){
-          temp=NULL;
-          return temp;
-        }
-        middle=length/2;
-        temp=head;
-        while(temp!=NULL){
-            middle--;
-            if(middle==0){
-                break;
-            }
-            temp=temp->next;
-        }
-        ListNode*delnode=temp->next;
-        temp->next=temp->next->next;
+        //  ListNode* temp=head;
+        // int middle;
+        // int length;
+        // while(temp!=NULL){
+        //     length++;
+        //     temp=temp->next;
+        // }
+        // if(length==1){
+        //   temp=NULL;
+         
+        //   return temp;
+        // }
+        // middle=length/2;
+        // temp=head;
+        // while(temp!=NULL){
+        //     middle--;
+        //     if(middle==0){
+        //         break;
+        //     }
+        //     temp=temp->next;
+        // }
+        // ListNode*delnode=temp->next;
+        // temp->next=temp->next->next;
+        // delete delnode;
+        // return head;
+
+    // optimal approach
+    ListNode* slow=head;
+    if(slow->next==NULL){
+        slow=NULL;
+        return slow;
+    }
+    ListNode* fast=head->next->next;
+    
+    while(fast!=NULL&& fast->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
+
+    }
+      ListNode*delnode=slow->next;
+        slow->next=slow->next->next;
         delete delnode;
         return head;
     }
