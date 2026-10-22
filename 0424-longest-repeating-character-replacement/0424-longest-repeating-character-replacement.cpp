@@ -2,24 +2,51 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        int n = s.length();
-        int l = 0, maxFreq = 0, maxLen = 0;
-        vector<int> freq(26, 0);
+        //BRUTE FORCE <--but will show TLE bcz of n^2-->
+//        int n =s.length();
+//       int maxilen=0;
+//        for(int i=0;i<n;i++){
+//        int hash[26]={0};
+//        int maxifreq=0;
+//         for(int j=i;j<n;j++){
+//            hash[s[j]-'A']++;
+// maxifreq=max(maxifreq,hash[s[j]-'A']);
+// int len=j-i+1;
+// int replacement=len-maxifreq;
+// if(replacement<=k){
+// maxilen=max(maxilen,len);
+// }
+//         }
+//        }
+//        return maxilen;
 
-        for (int r = 0; r < n; r++) {
-            freq[s[r] - 'A']++;
+//OPTIMAL APPROACH 
 
-            maxFreq = max(maxFreq, freq[s[r] - 'A']);
+int n=s.length();
+int maxilen=0;
+int hash[26]={0};
+int r=0;
+int l=0;
+ int maxifreq=0;
+while(r<n){
+    
+hash[s[r]-'A']++;
+maxifreq=max(maxifreq,hash[s[r]-'A']);
 
-            while ((r - l + 1) - maxFreq > k) {
-                freq[s[l] - 'A']--;
-                l++;
-            }
+    while((r-l+1)-maxifreq>k){
+        hash[s[l]-'A']--;
+       maxifreq=0;
+       for(int i=0;i<26;i++){
+        maxifreq=max(maxifreq,hash[i]);
+       }
+l++;
+    }
 
-            maxLen = max(maxLen, r - l + 1);
-        }
+    maxilen=max(maxilen,r-l+1);
 
-        return maxLen;
+r++;
+    }
+    return maxilen;
     }
 };
 
